@@ -22,11 +22,11 @@ class VRPModel:
     def _init_depot(self):
         self.depot_dict = {
             customer.cust_id:
-            self.m.add_depot(
-                x=customer.x_cord,
-                y=customer.y_cord,
-                name=customer.cust_id
-            )
+                self.m.add_depot(
+                    x=customer.x_cord,
+                    y=customer.y_cord,
+                    name=customer.cust_id
+                )
             for _, customer in self.input_data.customer_dict.items()
             if customer.is_depot
         }
@@ -34,15 +34,15 @@ class VRPModel:
     def _init_customers(self):
         self.customer_dict = {
             customer.cust_id:
-            self.m.add_client(
-                x=customer.x_cord,
-                y=customer.y_cord,
-                name=customer.cust_id,
-                tw_early=customer.ready_time,
-                tw_late=customer.due_date,
-                delivery=[customer.demand, 1],
-                service_duration=customer.service_time
-            )
+                self.m.add_client(
+                    x=customer.x_cord,
+                    y=customer.y_cord,
+                    name=customer.cust_id,
+                    tw_early=customer.ready_time,
+                    tw_late=customer.due_date,
+                    delivery=[customer.demand, 1],
+                    service_duration=customer.service_time
+                )
             for _, customer in self.input_data.customer_dict.items()
             if not customer.is_depot
         }
@@ -67,9 +67,8 @@ class VRPModel:
                     frm,
                     to,
                     distance=distance,
-                    duration=to_node.service_time if frm.name != to.name else 0,
+                    duration=distance,
                 )
-
 
     def solve(self, stop):
 
