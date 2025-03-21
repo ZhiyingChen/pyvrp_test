@@ -30,7 +30,7 @@ def convert_to_vrp(
 
     # 处理客户信息
     customers = []
-    for line in sections["CUSTOMER"][2:]:  # 跳过标题行和空行
+    for line in sections["CUSTOMER"][1:]:  # 跳过标题行
         parts = list(filter(None, line.split()))
         if len(parts) < 7:
             continue
