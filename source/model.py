@@ -71,8 +71,6 @@ class VRPModel:
                 )
 
 
-    def solve(self):
-        stop = MultipleCriteria(
-            [NoImprovement(5000), MaxRuntime(len(self.m.locations) * 2)]
-        )
+    def solve(self, stop):
+
         self.res = self.m.solve(stop=stop, display=True)
