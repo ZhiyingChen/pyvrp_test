@@ -35,7 +35,7 @@ def convert_to_vrp(
         if len(parts) < 7:
             continue
         customers.append({
-            'id': parts[0],
+            'id': int(parts[0]) + 1,
             'x': parts[1],
             'y': parts[2],
             'demand': parts[3],
