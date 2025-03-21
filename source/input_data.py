@@ -49,10 +49,10 @@ class InputData:
                 cust_id=str(int(parts[0]) + 1),
                 x_cord=int(parts[1]),
                 y_cord=int(parts[2]),
-                demand=float(parts[3]),
-                ready_time=float(parts[4]),
-                due_date=float(parts[5]),
-                service_time=float(parts[6]),
+                demand=int(parts[3]),
+                ready_time=int(parts[4]),
+                due_date=int(parts[5]),
+                service_time=int(parts[6]),
                 is_depot=False if int(parts[0]) > 0 else True
             )
             customers[customer.cust_id] = customer

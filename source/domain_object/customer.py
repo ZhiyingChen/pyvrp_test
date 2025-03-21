@@ -5,10 +5,10 @@ class Customer:
             is_depot: bool,
             x_cord: int,
             y_cord: int,
-            demand: float,
-            ready_time: float,
-            due_date: float,
-            service_time: float
+            demand: int,
+            ready_time: int,
+            due_date: int,
+            service_time: int
     ):
         self.cust_id = cust_id
         self.x_cord = x_cord
