@@ -40,15 +40,20 @@ if __name__ == "__main__":
                     result = model.solve(stop=stop_conditions, display=True)
                     vehicles = result.best.num_routes()
                     cost = result.cost()
+                    clients = result.best.num_clients()
+                    duration = result.best.duration()
+
                 except Exception as e:
-                    vehicles = cost = "N/A"
+                    vehicles = cost = clients = duration = "N/A"
                     print(f"求解失败: {instance_name} (Time={time_limit}s) - {str(e)}")
 
                 results.append({
                     "Instance": instance_name.replace(".vrp", ""),
                     "Vehicles": vehicles,
                     "Timelimits": f"{time_limit // 60}分钟",
-                    "Test_Cost": cost,
+                    "Distance": cost,
+                    "Clients": clients,
+                    "Duration": duration,
                 })
 
         except Exception as e:
